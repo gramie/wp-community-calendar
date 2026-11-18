@@ -1,0 +1,13 @@
+/* Community Calendar: event fields (admin meta box and front-end form). */
+
+.cc-table{width:100%;border-collapse:collapse}
+.cc-table th{width:180px;text-align:left;vertical-align:top;padding:10px 10px 10px 0}
+.cc-table td{padding:6px 0}
+.cc-table input[type=text],
+.cc-table input[type=url],
+.cc-table input[type=email],
+.cc-table input[type=tel],
+.cc-table select{width:100%;max-width:420px}
+.cc-table select.cc-auto{width:auto;max-width:none}
+.cc-table input.cc-narrow{width:70px}
+.cc-weekdays label{margin-right:10px;white-space:nowrap}
