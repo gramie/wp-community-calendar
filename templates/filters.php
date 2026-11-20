@@ -47,9 +47,9 @@ if (!$f["from"]) {
  ); ?>"></label>
 	<div class="cc_filter_selects">
 	<?php foreach ($selects as $select): ?>
-		<select name="<?php echo esc_attr(
-      $select["name"],
-  ); ?>" aria-label="<?php echo esc_attr($select["label"]); ?>">
+		<select name="<?php echo esc_attr($select["name"]); ?>"
+		        aria-label="<?php echo esc_attr($select["label"]); ?>"
+		>
 			<option value=""><?php echo esc_html($select["label"]); ?></option>
 			<?php foreach ($select["choices"] as $eid => $title): ?>
 				<option value="<?php echo (int) $eid; ?>" <?php selected(
