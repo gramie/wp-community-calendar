@@ -165,15 +165,37 @@
     padding: 0.5em 1em;
     background: #f0fbf5;
 }
-.cc-my table {
-    width: 100%;
-    border-collapse: collapse;
+.cc-my {
+    margin: 3em;
+    border-bottom: 3px solid gray;
+    box-shadow: 4px 4px 4px silver;
+    background-color: #fafafa;
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    td,
+    th {
+        border-bottom: 1px solid #ddd;
+        padding: 6px;
+        text-align: left;
+    }
+    th {
+        background-color: silver;
+    }
 }
-.cc-my td,
-.cc-my th {
-    border-bottom: 1px solid #ddd;
-    padding: 6px;
-    text-align: left;
+
+.cc-form {
+    select#cc_types {
+        height: 6em;
+    }
+    label {
+        margin-left: 1em;
+    }
+    p {
+        margin: 0;
+    }
 }
 
 @media (max-width: 600px) {
