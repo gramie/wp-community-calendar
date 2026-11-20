@@ -12,7 +12,12 @@
 
 if (!defined("ABSPATH")) {
     exit();
-} ?>
+}
+if (!$f["from"]) {
+    // If no "From" date is specified, start from the current date
+    $f["from"] = date("Y-m-d");
+}
+?>
 <form class="cc-filters" method="get" action="<?php echo esc_url(
     $form_action,
 ); ?>">
