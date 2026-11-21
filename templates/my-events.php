@@ -15,7 +15,6 @@ if (!defined("ABSPATH")) {
 			<tr>
 				<th><?php esc_html_e("Title", "community-calendar"); ?></th>
 				<th><?php esc_html_e("Starts", "community-calendar"); ?></th>
-				<th><?php esc_html_e("Status", "community-calendar"); ?></th>
 				<th></th>
 			</tr>
 		</thead>
@@ -24,7 +23,6 @@ if (!defined("ABSPATH")) {
 				<tr>
 					<td><?php echo esc_html($row["title"]); ?></td>
 					<td><?php echo esc_html($row["when"]); ?></td>
-					<td><?php echo esc_html($row["status"]); ?></td>
 					<td>
 						<?php if ($row["edit_url"]): ?>
 							<a href="<?php echo esc_url($row["edit_url"]); ?>"><?php esc_html_e(

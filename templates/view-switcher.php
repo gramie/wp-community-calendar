@@ -24,6 +24,6 @@ if (!defined("ABSPATH")) {
 	<?php endforeach; ?>
     </nav>
     <?php if (current_user_can("edit_cc_events")) { ?>
-    <div class="add-event button"><a href="/oha-calendar-add-event">Add event</a></div>
+    <div class="add-event has-light-green-cyan-background-color has-black-color"><a href="/oha-calendar-add-event">Add event</a></div>
     <?php } ?>
 </div>
