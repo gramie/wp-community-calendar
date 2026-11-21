@@ -65,17 +65,16 @@ if (!defined("ABSPATH")) {
 		<?php endif; ?>
 		<input type="file" id="cc_image" name="cc_image" accept="image/jpeg,image/png,image/gif,image/webp"><br>
 		<span class="cc-meta">
-			 /* translators: %s: maximum upload size, e.g. 8 MB */<?php
-
-echo esc_html(
-       sprintf(
-           __(
-               "JPG, PNG, GIF or WebP, up to %s. Uploading a new image replaces the current one.",
-               "community-calendar",
-           ),
-           $max_size,
-       ),
-   ); ?>
+			 <?php /* translators: %s: maximum upload size, e.g. 8 MB */
+    echo esc_html(
+        sprintf(
+            __(
+                "JPG, PNG, GIF or WebP, up to %s. Uploading a new image replaces the current one.",
+                "community-calendar",
+            ),
+            $max_size,
+        ),
+    ); ?>
 		</span>
 	</p>
 
