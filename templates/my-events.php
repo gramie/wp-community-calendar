@@ -9,6 +9,7 @@ if (!defined("ABSPATH")) {
     exit();
 } ?>
 <div class="cc-my">
+    <h2>My Events</h2>
 	<table>
 		<thead>
 			<tr>

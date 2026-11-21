@@ -97,13 +97,14 @@
         padding: 4px;
         font-size: 0.85em;
     }
-    th {
+    tr th {
         font-weight: bold;
         background-color: gray;
         color: #f5fad3;
     }
-    td {
+    tr td {
         height: 90px;
+        padding: 6px;
     }
     td.cc-other {
         background: #f7f7f7;
