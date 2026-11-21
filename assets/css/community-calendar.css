@@ -205,6 +205,8 @@
 
 .event-form {
     border-top: 2px inset gray;
+    background-color: #f9f9f9;
+    padding: 1em;
 }
 
 .cc-form {
