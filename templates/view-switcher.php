@@ -5,12 +5,25 @@
  * @var array $views  Each: label, url, current (bool).
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
-?>
-<nav class="cc-views" aria-label="<?php esc_attr_e( 'Calendar view', 'community-calendar' ); ?>">
-	<?php foreach ( $views as $view ) : ?>
-		<a href="<?php echo esc_url( $view['url'] ); ?>" class="<?php echo $view['current'] ? 'is-current' : ''; ?>" <?php echo $view['current'] ? 'aria-current="page"' : ''; ?>><?php echo esc_html( $view['label'] ); ?></a>
+if (!defined("ABSPATH")) {
+    exit();
+} ?>
+<div class="calendar-head"">
+    <nav class="cc-views" aria-label="<?php esc_attr_e(
+        "Calendar view",
+        "community-calendar",
+    ); ?>">
+	<?php foreach ($views as $view): ?>
+		<a href="<?php echo esc_url($view["url"]); ?>" class="<?php echo $view[
+    "current"
+]
+    ? "is-current"
+    : ""; ?>" <?php echo $view["current"]
+    ? 'aria-current="page"'
+    : ""; ?>><?php echo esc_html($view["label"]); ?></a>
 	<?php endforeach; ?>
-</nav>
+    </nav>
+    <?php if (current_user_can("edit_cc_events")) { ?>
+    <div class="add-event button"><a href="/oha-calendar-add-event">Add event</a></div>
+    <?php } ?>
+</div>

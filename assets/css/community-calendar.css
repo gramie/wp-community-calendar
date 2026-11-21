@@ -9,20 +9,37 @@
 }
 
 /* List / Calendar switcher */
-.cc-views {
+.calendar-head {
     display: flex;
-    gap: 0.25em;
-    margin-bottom: 1em;
+    justify-content: space-between;
 
-    a {
-        padding: 0.3em 0.9em;
-        border: 1px solid #ccc;
-        text-decoration: none;
+    .cc-views {
+        display: flex;
+        gap: 0.25em;
+        margin-bottom: 1em;
+
+        a {
+            padding: 0.3em 0.9em;
+            border: 1px solid #ccc;
+            text-decoration: none;
+        }
+        a.is-current {
+            font-weight: 600;
+            background: #f0f0f0;
+            border-color: #888;
+        }
     }
-    a.is-current {
-        font-weight: 600;
-        background: #f0f0f0;
-        border-color: #888;
+
+    .add-event.button {
+        width: 10em;
+        height: 2em;
+        padding: 6px;
+        text-align: center;
+
+        a {
+            color: black;
+            text-decoration: none;
+        }
     }
 }
 
