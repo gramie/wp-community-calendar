@@ -1,6 +1,6 @@
 <?php
 /**
- * The director's own events, with Edit / View / Delete actions.
+ * The Event Manager's own events, with Edit / View / Delete actions.
  *
  * @var array $rows  Events: title, when, status, edit_url, view_url, delete_url.
  */
