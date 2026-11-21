@@ -203,6 +203,10 @@
     }
 }
 
+.event-form {
+    border-top: 2px inset gray;
+}
+
 .cc-form {
     select#cc_types {
         height: 6em;
