@@ -213,6 +213,9 @@
     p {
         margin: 0;
     }
+    th:nth-child(1) {
+        width: 16em;
+    }
 }
 
 @media (max-width: 600px) {
