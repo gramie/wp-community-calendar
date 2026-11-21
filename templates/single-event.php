@@ -12,6 +12,7 @@
 if (!defined("ABSPATH")) {
     exit();
 } ?>
+<p><a href="/oha-event-calendar">Return to Calendar</a></p>
 <?php echo $owner_links;
 // phpcs:ignore WordPress.Security.EscapeOutput -- built by templates/owner-links.php.
 ?>
