@@ -81,7 +81,7 @@ function cc_get_occurrences(
                 break 2;
             }
 
-            $cand;
+            $push($cand);
         }
     }
     return $out;
