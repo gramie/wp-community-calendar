@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Community Calendar
  * Description: A community events calendar. Users with the "event manager" role can create and edit their own events (with recurrence, image, district and society pulled from Gravity Forms entries).
- * Version: 1.7.76
+ * Version: 1.7.78
  * Requires PHP: 7.4
  * Text Domain: community-calendar
  */
@@ -11,7 +11,7 @@ if (!defined("ABSPATH")) {
     exit();
 }
 
-define("CC_VERSION", "1.7.76");
+define("CC_VERSION", "1.7.78");
 define("CC_FILE", __FILE__);
 define("CC_DIR", plugin_dir_path(__FILE__));
 define("CC_URL", plugin_dir_url(__FILE__));

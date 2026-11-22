@@ -232,6 +232,11 @@ function cc_render_list(array $f, $days)
         if ($to > $max) {
             $to = $max;
         }
+        if ($to < $from) {
+            $temp = $from;
+            $from = $to;
+            $to = $temp;
+        }
     } elseif ($month) {
         $from = new DateTimeImmutable($month . "-01 00:00:00", $tz);
         $to = $from->modify("last day of this month")->setTime(23, 59, 59);
@@ -590,7 +595,7 @@ function cc_single_event_content($content)
         ];
     }
     $rows[] = [
-        "label" => __("Add to calendar", "community-calendar"),
+        "label" => __("Add to calendar (iCalendar, Google Calendar, etc.)", "community-calendar"),
         "type" => "link",
         "url" => cc_ical_url(["cc_event" => $id]),
         "text" => __("Download .ics", "community-calendar"),

@@ -33,6 +33,14 @@ add_filter( 'query_vars', function ( $vars ) {
 	return $vars;
 } );
 
+// 1. Short-circuit core's 404 handling for feed requests.
+add_filter( 'pre_handle_404', function ( $preempt, $query ) {
+    if ( '' !== (string) get_query_var( 'cc_ical' ) ) {
+        return true; // Non-false short-circuits handle_404().
+    }
+    return $preempt;
+}, 10, 2 );
+
 function cc_ical_url( $args = array() ) {
 	$args = array_filter( $args );
 	if ( get_option( 'permalink_structure' ) ) {
@@ -112,6 +120,11 @@ function cc_ical_event_lines( WP_Post $post, DateTimeZone $tz, $use_utc ) {
 	};
 
 	$host  = wp_parse_url( home_url(), PHP_URL_HOST );
+	if (!$end) {
+	    $endDT = new DateTimeImmutable($end);
+		$newEndDT = $endDT->add(new DateInterval('PT1H'));
+		$end = $newEndDT->format('Y-m-d H:i:s');
+	}
 	$lines = array(
 		'BEGIN:VEVENT',
 		'UID:cc-' . $id . '@' . $host,
@@ -120,7 +133,7 @@ function cc_ical_event_lines( WP_Post $post, DateTimeZone $tz, $use_utc ) {
 		$dt( $start, 'DTSTART' ),
 		$dt( $end ? $end : $start, 'DTEND' ),
 		'SUMMARY:' . cc_ical_escape( get_the_title( $post ) ),
-		'URL:' . get_permalink( $post ),
+		'URL:' . esc_url(get_permalink( $post )),
 	);
 
 	// Recurrence.
@@ -226,6 +239,7 @@ function cc_serve_ical() {
 	if ( $single ) {
 		$args['p'] = $single;
 		unset( $args['meta_query'][1] ); // Single events are always exportable.
+		unset( $args['meta_query'][2] );
 	}
 	if ( $district ) {
 		$args['meta_query'][] = array( 'key' => '_cc_district_id', 'value' => $district );
@@ -239,6 +253,7 @@ function cc_serve_ical() {
 		);
 	}
 	$posts = get_posts( $args );
+	//print_r($posts);
 
 	$name    = get_bloginfo( 'name' ) . ' – ' . __( 'Events', 'community-calendar' );
 	$use_utc = ( 'UTC' === $tz->getName() || preg_match( '/^[+-]/', $tz->getName() ) );
@@ -263,10 +278,12 @@ function cc_serve_ical() {
 
 	$body = implode( "\r\n", array_map( 'cc_ical_fold', $lines ) ) . "\r\n";
 
+	status_header( 200 );
 	nocache_headers();
 	header( 'Content-Type: text/calendar; charset=utf-8' );
 	header( 'Content-Disposition: inline; filename="events.ics"' );
 	header( 'Cache-Control: public, max-age=900' );
 	echo $body; // phpcs:ignore WordPress.Security.EscapeOutput -- iCalendar text, escaped per RFC 5545.
+	echo " ";
 	exit;
 }

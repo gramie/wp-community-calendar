@@ -9,7 +9,7 @@ if (!defined("ABSPATH")) {
     exit();
 } ?>
 <div class="cc-my">
-    <h2>My Events</h2>
+    <h2><?php esc_html__("My Events", "community-calendar"); ?></h2>
 	<table>
 		<thead>
 			<tr>

@@ -8,7 +8,7 @@
 if (!defined("ABSPATH")) {
     exit();
 } ?>
-<div class="calendar-head"">
+<div class="calendar-head">
     <nav class="cc-views" aria-label="<?php esc_attr_e(
         "Calendar view",
         "community-calendar",

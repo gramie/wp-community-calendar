@@ -130,7 +130,7 @@
         font-weight: 600;
         display: block;
     }
-    .cc-item {
+    a.cc-item {
         display: block;
         margin-top: 2px;
         margin-bottom: 1em;
@@ -141,7 +141,9 @@
         border-radius: 6px;
         padding: 4px;
         background-color: #f8fff8;
+        text-decoration: none;
     }
+
     .cc-today .cc-num {
         color: lightcyan;
         background-color: green;
