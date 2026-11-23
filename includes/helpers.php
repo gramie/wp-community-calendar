@@ -124,6 +124,11 @@ function cc_register_assets() {
 	wp_register_style( 'cc-calendar', CC_URL . 'assets/css/community-calendar.css', array(), CC_VERSION );
 	wp_register_style( 'cc-event-form', CC_URL . 'assets/css/event-form.css', array(), CC_VERSION );
 	wp_register_script( 'cc-calendar', CC_URL . 'assets/js/calendar.js', array(), CC_VERSION, true );
+	if (!wp_script_is('cc-choices', 'registered')) {
+	    wp_register_script( 'cc-choices', CC_URL . 'assets/js/choices.min.js', array(), CC_VERSION, true );
+		wp_register_style( 'cc-choicesbase', CC_URL . 'assets/css/choices-base.min.css', array(), CC_VERSION );
+		wp_register_style( 'cc-choices', CC_URL . 'assets/css/choices.min.css', array(), CC_VERSION );
+	}
 	wp_register_script( 'cc-event-form', CC_URL . 'assets/js/event-form.js', array(), CC_VERSION, true );
 	wp_localize_script( 'cc-event-form', 'ccEventForm', array(
 		'units'  => array(
@@ -151,4 +156,8 @@ function cc_enqueue_event_form_assets() {
 	cc_register_assets();
 	wp_enqueue_style( 'cc-event-form' );
 	wp_enqueue_script( 'cc-event-form' );
+
+	wp_enqueue_style( 'cc-choicesbase' );
+	wp_enqueue_style( 'cc-choices' );
+	wp_enqueue_script( 'cc-choices' );
 }
