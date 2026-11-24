@@ -38,8 +38,9 @@
         }
 
         // Use the choices.js library for drop-down fields
-        const ccTypes = document.querySelector('#cc_types');
-        const ccChoices = new Choices(ccTypes, {
+        for (const dropdown of ['#cc_types', '#cc_district', '#cc_society']) {
+        const dropdownControl = document.querySelector(dropdown);
+        const ccChoices = new Choices(dropdownControl, {
           removeItems: true,
           removeItemButton: true
         });
