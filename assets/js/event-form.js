@@ -35,7 +35,14 @@
 				row.style.display = v === 'monthly_nth' ? '' : 'none';
 			});
 			unit.textContent = cfg.units[v] || '';
-		}
+        }
+
+        // Use the choices.js library for drop-down fields
+        const ccTypes = document.querySelector('#cc_types');
+        const ccChoices = new Choices(ccTypes, {
+          removeItems: true,
+          removeItemButton: true
+        });
 
 		function checkDates() {
 			// The end may not be before the start.

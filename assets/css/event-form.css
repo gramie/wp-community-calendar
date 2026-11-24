@@ -11,3 +11,13 @@
 .cc-table select.cc-auto{width:auto;max-width:none}
 .cc-table input.cc-narrow{width:70px}
 .cc-weekdays label{margin-right:10px;white-space:nowrap}
+
+.choices {
+  --choices-primary-color: darkgreen;
+  --choices-button-border-radius: 2.5px;
+  --choices-button-dimension: 8px;
+  --choices-bg-color-dropdown: var(--choices-bg-color-dropdown);
+  .choices__item {
+      color: black;
+  }
+}
